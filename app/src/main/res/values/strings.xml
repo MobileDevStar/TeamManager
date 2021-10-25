@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TeamManager</string>
+    <string name="update_user">Update User</string>
 </resources>
