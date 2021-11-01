@@ -1,8 +1,17 @@
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: "androidx.navigation.safeargs.kotlin"
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
+}
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -31,28 +40,61 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
+        viewBinding true
+        dataBinding true
     }
+
+//    dataBinding {
+//        enabled = true
+//        enabledForTests = true
+//    }
 }
 
 dependencies {
     implementation deps.app_compat
+    implementation deps.constraint_layout
     implementation deps.fragment.runtime_ktx
     implementation deps.material
 
     // Architecture components
     implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.lifecycle.extentions
+
+    implementation deps.lagacy
+    implementation deps.navigation.runtime
+    implementation deps.navigation.runtime_ktx
+    implementation deps.navigation.fragment
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui
+    implementation deps.navigation.ui_ktx
+
     kapt deps.lifecycle.compiler
     implementation deps.room.runtime
     kapt deps.room.compiler
-    implementation deps.room.rxjava2
+    implementation deps.room.ktx
+
+    kapt deps.glide.compiler
+    implementation deps.glide.runtime
+
+    implementation deps.gson
 
     // RxJava
-    implementation deps.rx_android
-    implementation deps.rxjava2
+//    implementation deps.rx_android
+//    implementation deps.rxjava2
 
     // Kotlin
     implementation deps.kotlin.stdlib
+
+    kapt deps.dagger.hilt_compiler
+    implementation deps.dagger.hilt
+
+    implementation deps.work.runtime_ktx
+
+    // Test
+    kaptAndroidTest deps.dagger.hilt_compiler
+    androidTestImplementation deps.dagger.hilt_testing
 
     // Dependencies for local unit tests
     testImplementation deps.junit

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">TeamManager</string>
     <string name="update_user">Update User</string>
+
+    <!-- Accessibility -->
+    <string name="a11y_member_item_image" translation_description="Accessibility text for each of the plant images shown in the 'My garden' and 'Plant list' screens.">Picture of plant</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
