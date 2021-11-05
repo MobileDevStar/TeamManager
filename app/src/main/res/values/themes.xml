@@ -18,4 +18,9 @@
     </style>
 
     <style name="Theme.TeamManager" parent="Base.Theme.TeamManager"/>
+    <style name="Theme.TeamManager.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+
+    <style name="TextAppearance.TeamManager.Toolbar.Text" parent="TextAppearance.MaterialComponents.Headline5" >
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
 </resources>

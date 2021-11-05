@@ -24,6 +24,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Consult the README on instructions for setting up Unsplash API key
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"" + getUnsplashAccess() + "\"")
     }
     buildTypes {
         release {
@@ -125,4 +128,8 @@ dependencies {
     androidTestImplementation deps.annotations
     androidTestImplementation deps.app_compat
     androidTestImplementation deps.material
+}
+
+def getUnsplashAccess() {
+    return project.findProperty("unsplash_access_key")
 }

@@ -1,5 +1,6 @@
 package com.itdev.teammanager.data.repository
 
+import androidx.lifecycle.asLiveData
 import com.itdev.teammanager.data.dao.MemberDao
 import javax.inject.Inject
 import javax.inject.Singleton

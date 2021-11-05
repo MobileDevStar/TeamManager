@@ -9,5 +9,40 @@
         android:name="com.itdev.teammanager.ui.MemberListFragment"
         android:label="Member List"
         tools:layout="@layout/fragment_member_list">
+        <action
+            android:id="@+id/action_member_list_fragment_to_member_detail_fragment"
+            app:destination="@id/member_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/member_detail_fragment"
+        android:name="com.itdev.teammanager.ui.MemberDetailFragment"
+        android:label="Member Detail"
+        tools:layout="@layout/fragment_member_detail">
+        <argument
+            android:name="memberId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_member_detail_fragment_to_gallery_fragment"
+            app:destination="@id/gallery_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gallery_fragment"
+        android:name="com.itdev.teammanager.ui.GalleryFragment"
+        android:label="@string/member_details_title"
+        tools:layout="@layout/fragment_gallery">
+
+        <argument
+            android:name="memberName"
+            app:argType="string" />
     </fragment>
 </navigation>

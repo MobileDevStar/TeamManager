@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.itdev.teammanager.data.model.Member
 import com.itdev.teammanager.databinding.ListItemMemberBinding
+import com.itdev.teammanager.ui.MemberListFragmentDirections
 
 /**
  * Adapter for the [RecyclerView] in [MemberListFragment].
@@ -45,11 +46,11 @@ class MemberAdapter : ListAdapter<Member, RecyclerView.ViewHolder>(MemberDiffCal
             member: Member,
             view: View
         ) {
-//            val direction =
-//                HomeViewPagerFragmentDirections.actionViewPagerFragmentToPlantDetailFragment(
-//                    plant.plantId
-//                )
-//            view.findNavController().navigate(direction)
+            val direction =
+                MemberListFragmentDirections.actionMemberListFragmentToMemberDetailFragment(
+                    member.memberId
+                )
+            view.findNavController().navigate(direction)
         }
 
         fun bind(item: Member) {
