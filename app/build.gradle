@@ -83,6 +83,10 @@ dependencies {
 
     implementation deps.gson
 
+    implementation deps.okhttp_logging_interceptor
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+
     // RxJava
 //    implementation deps.rx_android
 //    implementation deps.rxjava2
@@ -94,6 +98,8 @@ dependencies {
     implementation deps.dagger.hilt
 
     implementation deps.work.runtime_ktx
+
+    implementation deps.paging_runtime_ktx
 
     // Test
     kaptAndroidTest deps.dagger.hilt_compiler

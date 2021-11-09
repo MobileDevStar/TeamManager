@@ -13,8 +13,10 @@
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/fragment_member_detail.xml" value="0.2558876811594203" />
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/fragment_member_list.xml" value="0.26927083333333335" />
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/fragment_member_list2.xml" value="0.28229166666666666" />
+        <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/fragment_team.xml" value="0.18704710144927536" />
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/gallery_fragment.xml" value="0.21041666666666667" />
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/list_item_member.xml" value="0.26927083333333335" />
+        <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/layout/list_item_photo.xml" value="0.271875" />
         <entry key="..\:/Android_Kotlin/TeamManager/app/src/main/res/menu/menu_member_detail.xml" value="0.36666666666666664" />
       </map>
     </option>

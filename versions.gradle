@@ -54,7 +54,7 @@ versions.mockito_android = "2.25.0"
 versions.mockwebserver = "3.8.1"
 versions.navigation = "2.3.5"
 versions.okhttp_logging_interceptor = "3.9.0"
-versions.paging = "3.1.0-alpha04"
+versions.paging = "3.0.1"
 versions.recyclerview = "1.2.0-beta01"
 versions.gson = "2.8.0"
 versions.retrofit = "2.9.0"
@@ -192,6 +192,7 @@ deps.navigation = navigation
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 
 deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
+deps.paging_runtime_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
 
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 

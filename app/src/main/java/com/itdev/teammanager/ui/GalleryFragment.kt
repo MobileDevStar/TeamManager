@@ -1,43 +1,54 @@
 package com.itdev.teammanager.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.itdev.teammanager.R
+import com.itdev.teammanager.adapters.GalleryAdapter
 import com.itdev.teammanager.databinding.FragmentGalleryBinding
 import com.itdev.teammanager.viewmodels.GalleryViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class GalleryFragment : Fragment() {
-    private lateinit var binding: FragmentGalleryBinding
-
+    private val adapter = GalleryAdapter()
     private val args: GalleryFragmentArgs by navArgs()
-
-    companion object {
-        fun newInstance() = GalleryFragment()
-    }
-
-    private lateinit var viewModel: GalleryViewModel
+    private var searchJob: Job? = null
+    private val viewModel: GalleryViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentGalleryBinding.inflate(layoutInflater, container, false)
+        val binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        context ?: return binding.root
 
-        binding.galleryTitle.text = args.memberName
+        binding.photoList.adapter = adapter
+        search(args.memberName)
+
+        binding.toolbar.setNavigationOnClickListener { view ->
+            view.findNavController().navigateUp()
+        }
 
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GalleryViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun search(query: String) {
+        searchJob?.cancel()
+        searchJob = lifecycleScope.launch {
+            viewModel.searchPictures(query).collectLatest {
+                adapter.submitData(it)
+            }
+        }
     }
 
 }
