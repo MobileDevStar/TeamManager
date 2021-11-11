@@ -4,6 +4,8 @@
 
     <string name="menu_item_share_member" translation_description="The label for the Share menu item">Share</string>
 
+    <string name="add_member" translation_description="Button text that prompts user to navigate to the Plant List to add plants to their empty garden.">Add member</string>
+    <string name="team_empty" translation_description="Text that is shown on the 'My Garden' screen when no plants have been added to the user's garden">Your team is empty</string>
     <string name="share_text_member" translation_description="The default messaged used when sharing a member on SNS, etc.">Check out the %s member in the Android TeamManager app</string>
     <!-- String plurals and their related prefix / suffix strings -->
     <string name="watering_needs_prefix" translation_description="Prefix for the text describing how often a plant should be watered. Used in combination with watering_needs_suffix.">Watering needs</string>
@@ -11,6 +13,14 @@
         <item quantity="one" translation_description="Suffix for the text describing how often a plant should be watered, singular. Used in combination with watering_needs_prefix: 'Watering needs: every day'.">every day</item>
         <item quantity="other" translation_description="Suffix for the text describing how often a plant should be watered, plural. Used in combination with watering_needs_prefix: 'Watering needs: every 8 days'.">every %d days</item>
     </plurals>
+
+    <plurals name="completing_next">
+        <item quantity="one" translation_description="Text indicating when the the plant should next be watered, singular. Used in conjunction with last watered date. 'May 24, 2018 - water tomorrow.'.">complete tomorrow.</item>
+        <item quantity="other" translation_description="Text indicating when the the plant should next be watered, plural. Used in conjunction with last watered date. 'May 24, 2018 - water in 8 days.'.">complete in %d days.</item>
+    </plurals>
+
+    <string name="member_date_header" translation_description="Text that is shown on each plant on the 'My Garden' screen which says the word Planted to show date of planting below">Team Joined Date</string>
+    <string name="completed_date_header" translation_description="Text that is shown on each plant on the 'My Garden' screen which says the word Last Watered to show date of last watering below">Last Completed</string>
 
     <string name="member_details_title" translation_description="Title for the plant details screen where the user can see the details for a specific plant.">Member details</string>
     <string name="gallery_title" translation_description="Title for the member gallery screen">Member Photos by Unsplash</string>

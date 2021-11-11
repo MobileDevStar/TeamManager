@@ -20,8 +20,8 @@ data class Member(
      * Determines if the plant should be watered.  Returns true if [since]'s date > date of last
      * watering + watering Interval; false otherwise.
      */
-    fun shouldBeWatered(since: Calendar, lastWateringDate: Calendar) =
-        since > lastWateringDate.apply { add(DAY_OF_YEAR, wateringInterval) }
+    fun shouldBeCompleted(since: Calendar, lastCompletedDate: Calendar) =
+        since > lastCompletedDate.apply { add(DAY_OF_YEAR, wateringInterval) }
 
     override fun toString() = name
 }

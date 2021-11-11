@@ -19,6 +19,7 @@ package com.itdev.teammanager.di
 import android.content.Context
 import com.itdev.teammanager.data.AppDatabase
 import com.itdev.teammanager.data.dao.MemberDao
+import com.itdev.teammanager.data.dao.TeamMemberDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,5 +40,10 @@ class DatabaseModule {
     @Provides
     fun provideMemberDao(appDatabase: AppDatabase): MemberDao {
         return appDatabase.memberDao()
+    }
+
+    @Provides
+    fun provideTeamMemberDao(appDatabase: AppDatabase): TeamMemberDao {
+        return appDatabase.teamMemberDao()
     }
 }

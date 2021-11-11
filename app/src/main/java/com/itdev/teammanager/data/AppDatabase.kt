@@ -10,7 +10,9 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 import com.itdev.teammanager.data.dao.MemberDao
+import com.itdev.teammanager.data.dao.TeamMemberDao
 import com.itdev.teammanager.data.model.Member
+import com.itdev.teammanager.data.model.TeamMember
 import com.itdev.teammanager.utilities.DATABASE_NAME
 import com.itdev.teammanager.utilities.MEMBER_DATA_FILENAME
 import com.itdev.teammanager.workers.SeedDatabaseWorker
@@ -19,9 +21,10 @@ import com.itdev.teammanager.workers.SeedDatabaseWorker.Companion.KEY_FILENAME
 /**
  * The Room database for this app
  */
-@Database(entities = [Member::class], version = 1, exportSchema = false)
+@Database(entities = [TeamMember::class, Member::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun teamMemberDao(): TeamMemberDao
     abstract fun memberDao(): MemberDao
 
     companion object {
