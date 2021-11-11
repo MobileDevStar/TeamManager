@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ShareCompat
 import androidx.core.widget.NestedScrollView
 import androidx.databinding.DataBindingUtil
@@ -14,6 +15,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.itdev.teammanager.R
 import com.itdev.teammanager.data.model.Member
 import com.itdev.teammanager.databinding.FragmentMemberDetailBinding
@@ -36,8 +39,6 @@ class MemberDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.d("dddddddddddddddddddddddddd", args.memberId)
-
         val binding = DataBindingUtil.inflate<FragmentMemberDetailBinding>(
             inflater,
             R.layout.fragment_member_detail,
@@ -46,6 +47,14 @@ class MemberDetailFragment : Fragment() {
         ).apply {
             viewModel = memberDetailViewModel
             lifecycleOwner = viewLifecycleOwner
+            callback = Callback { member ->
+                member?.let {
+                    hideAppBarFab(fab)
+                    memberDetailViewModel.addMemberToTeam()
+                    Snackbar.make(root, R.string.added_member_to_team, Snackbar.LENGTH_LONG)
+                        .show()
+                }
+            }
 
             galleryNav.setOnClickListener { navigateToGallery() }
 
@@ -119,6 +128,17 @@ class MemberDetailFragment : Fragment() {
                 MemberDetailFragmentDirections.actionMemberDetailFragmentToGalleryFragment(member.name)
             findNavController().navigate(direction)
         }
+    }
+
+    // FloatingActionButtons anchored to AppBarLayouts have their visibility controlled by the scroll position.
+    // We want to turn this behavior off to hide the FAB when it is clicked.
+    //
+    // This is adapted from Chris Banes' Stack Overflow answer: https://stackoverflow.com/a/41442923
+    private fun hideAppBarFab(fab: FloatingActionButton) {
+        val params = fab.layoutParams as CoordinatorLayout.LayoutParams
+        val behavior = params.behavior as FloatingActionButton.Behavior
+        behavior.isAutoHideEnabled = false
+        fab.hide()
     }
 
     fun interface Callback {

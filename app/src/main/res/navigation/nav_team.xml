@@ -2,20 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/member_list_fragment">
+    app:startDestination="@id/view_pager_fragment">
 
     <fragment
-        android:id="@+id/member_list_fragment"
-        android:name="com.itdev.teammanager.ui.MemberListFragment"
-        android:label="Member List"
-        tools:layout="@layout/fragment_member_list">
+        android:id="@+id/view_pager_fragment"
+        android:name="com.itdev.teammanager.ui.HomeViewPagerFragment">
         <action
-            android:id="@+id/action_member_list_fragment_to_member_detail_fragment"
-            app:destination="@id/member_detail_fragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_view_pager_fragment_to_member_detail_fragment"
+            app:destination="@id/member_detail_fragment" />
     </fragment>
 
     <fragment

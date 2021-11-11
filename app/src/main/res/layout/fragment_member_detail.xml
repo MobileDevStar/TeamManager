@@ -8,9 +8,9 @@
         <variable
             name="viewModel"
             type="com.itdev.teammanager.viewmodels.MemberDetailViewModel" />
-<!--        <variable-->
-<!--            name="callback"-->
-<!--            type="com.itdev.teammanager.ui.MemberDetailFragment.Callback" />-->
+        <variable
+            name="callback"
+            type="com.itdev.teammanager.ui.MemberDetailFragment.Callback" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -165,8 +165,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{}"
+            android:onClick="@{() -> callback.add(viewModel.member)}"
             android:tint="@android:color/white"
+            app:isFabGone="@{viewModel.isJoined}"
             app:shapeAppearance="@style/ShapeAppearance.TeamManager.FAB"
             app:layout_anchor="@id/appbar"
             app:layout_anchorGravity="bottom|end"

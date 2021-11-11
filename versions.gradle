@@ -65,6 +65,7 @@ versions.rxjava2 = "2.1.3"
 versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.truth = "1.0.1"
+versions.view_pager = '1.0.0'
 versions.work = "2.7.0"
 ext.versions = versions
 
@@ -195,6 +196,7 @@ deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
 deps.paging_runtime_ktx = "androidx.paging:paging-runtime-ktx:$versions.paging"
 
 deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+deps.view_pager = "androidx.viewpager2:viewpager2:$versions.view_pager"
 
 deps.gson = "com.google.code.gson:gson:$versions.gson"
 

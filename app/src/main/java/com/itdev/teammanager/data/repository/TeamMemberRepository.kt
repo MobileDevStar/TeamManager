@@ -4,6 +4,7 @@ import androidx.lifecycle.asLiveData
 import com.itdev.teammanager.data.dao.MemberDao
 import com.itdev.teammanager.data.dao.TeamMemberDao
 import com.itdev.teammanager.data.model.TeamMember
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -27,9 +28,7 @@ class TeamMemberRepository @Inject constructor(
         teamMemberDao.deleteTeamMember(teamMember)
     }
 
-    fun isJoined(memberId: String) {
-        teamMemberDao.isJoined(memberId)
-    }
+    fun isJoined(memberId: String) = teamMemberDao.isJoined(memberId)
 
     fun getMemberedTeams() = teamMemberDao.getMemberedTeams()
 }

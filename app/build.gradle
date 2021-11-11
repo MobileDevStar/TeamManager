@@ -98,8 +98,8 @@ dependencies {
     implementation deps.dagger.hilt
 
     implementation deps.work.runtime_ktx
-
     implementation deps.paging_runtime_ktx
+    implementation deps.view_pager
 
     // Test
     kaptAndroidTest deps.dagger.hilt_compiler

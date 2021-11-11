@@ -1,10 +1,8 @@
 package com.itdev.teammanager.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.itdev.teammanager.R
 import com.itdev.teammanager.adapters.MemberAdapter
@@ -41,6 +39,20 @@ class MemberListFragment : Fragment() {
 
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_member_list, container, false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_member_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.filter_zone -> {
+                updateData()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     private fun subscribeUi(adapter: MemberAdapter) {

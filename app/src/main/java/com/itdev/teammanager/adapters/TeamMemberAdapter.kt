@@ -9,11 +9,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.itdev.teammanager.R
-import com.itdev.teammanager.data.model.Member
 import com.itdev.teammanager.data.model.MemberAndTeamMembers
-import com.itdev.teammanager.databinding.ListItemMemberBinding
 import com.itdev.teammanager.databinding.ListItemTeamMemberBinding
-import com.itdev.teammanager.ui.MemberListFragmentDirections
+import com.itdev.teammanager.ui.HomeViewPagerFragmentDirections
 import com.itdev.teammanager.ui.TeamFragment
 import com.itdev.teammanager.viewmodels.TeamMemberItemViewModel
 
@@ -52,11 +50,9 @@ class TeamMemberAdapter : ListAdapter<MemberAndTeamMembers, TeamMemberAdapter.Vi
             memberId: String,
             view: View
         ) {
-//            val direction =
-//                TeamFragment.actionMemberListFragmentToMemberDetailFragment(
-//                    member.memberId
-//                )
-//            view.findNavController().navigate(direction)
+            val direction =
+                HomeViewPagerFragmentDirections.actionViewPagerFragmentToMemberDetailFragment(memberId)
+            view.findNavController().navigate(direction)
         }
 
         fun bind(members: MemberAndTeamMembers) {

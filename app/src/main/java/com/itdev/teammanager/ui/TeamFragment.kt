@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.itdev.teammanager.R
+import com.itdev.teammanager.adapters.MEMBER_LIST_PAGE_INDEX
 import com.itdev.teammanager.adapters.TeamMemberAdapter
 import com.itdev.teammanager.databinding.FragmentTeamBinding
 import com.itdev.teammanager.viewmodels.TeamMemberListViewModel
@@ -48,7 +49,7 @@ class TeamFragment : Fragment() {
 
     // TODO: convert to data binding if applicable
     private fun navigateToPlantListPage() {
-//        requireActivity().findViewById<ViewPager2>(R.id.view_pager).currentItem =
-//            PLANT_LIST_PAGE_INDEX
+        requireActivity().findViewById<ViewPager2>(R.id.view_pager).currentItem =
+            MEMBER_LIST_PAGE_INDEX
     }
 }
